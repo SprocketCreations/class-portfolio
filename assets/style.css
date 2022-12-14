@@ -9,6 +9,10 @@ body {
 	background: rgb(36, 36, 36);
 }
 
+a {
+	color: rgb(124, 124, 240);
+}
+
 /* The banner at the top and bottom of the page */
 header,
 footer {
@@ -20,6 +24,7 @@ footer {
 	height:min-content;
 }
 
+/* There are some properties that are inverted between the header and footer */
 header {
 	border-radius: 0em 0em 1.5em 1.5em;
 	box-shadow: 1em 0em 1em black;
@@ -29,6 +34,7 @@ footer {
 	box-shadow: -1em 0em 1em black;
 }
 
+/* I use these divs to create the border effect on the header and footer */
 header div,
 footer div{
 	overflow:auto;
@@ -36,10 +42,6 @@ footer div{
 	background-color: rgb(82, 82, 82);
 	box-shadow: inset 0px 0px 1em rgb(48, 48, 48);
 	border-radius: 1em 1em 1em 1em;
-}
-
-a {
-	color: rgb(124, 124, 240);
 }
 
 /* The main body of the portfolio */
@@ -59,6 +61,7 @@ a {
 	display: block;;
 }
 
+/* This is the anchor representing the portfolio option */
 .portfolio-list li section a {
 	display: block;
 	height: 20em;
@@ -69,6 +72,7 @@ a {
 	cursor:pointer;
 }
 
+/* The picture is grayed out normally, and glows when hovered over */
 .portfolio-list li section a img {
 	display: block;
 	width: 100%;
@@ -79,6 +83,7 @@ a {
 	filter: brightness(1.0);
 }
 
+/* The header sits above the image and has a cool black gradient background */
 .portfolio-list li section a h1 {
 	position: absolute;
 	display: block;
