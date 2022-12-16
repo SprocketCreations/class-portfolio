@@ -4,9 +4,15 @@
 	
 	--background-color: #242424;
 	--block-color: #7c7c7c;
+
+	--nav-button-color: #F2C57C;
+	--nav-button-color-hover: #b6873b;
+
 	--banner-border-color: #303030;
 	--banner-shadow-color: black;
 	--banner-color: #525252;
+
+	--button-color: red;
 }
 
 
@@ -14,6 +20,7 @@
 	/* TODO: Pick a nice font */
 	color: var(--font-color);
 	font-family: Arial, Helvetica, sans-serif;
+	box-sizing: border-box;
 }
 
 body {
@@ -24,6 +31,13 @@ body {
 
 a {
 	color: var(--hyperlink-color);
+}
+a:hover {
+	color: brightness(var(--hyperlink-color), 110%);
+}
+
+.can-wrap {
+	word-wrap: break-word;
 }
 
 /* The banner at the top and bottom of the page */
@@ -43,7 +57,7 @@ footer div{
 	overflow:auto;
 	margin:0px;
 	background-color: var(--banner-color);
-	box-shadow: inset 0px 0px 0.3em --banner-border-color;
+	box-shadow: inset 0px 0px 0.3em var(--banner-border-color);
 	padding: 2em 1em;
 }
 
@@ -55,6 +69,7 @@ header {
 }
 header div {
 	border-radius: 0 0 1em 1em;
+	position: relative;
 }
 footer {
 	border-radius: 1.5em 1.5em 0em 0em;
@@ -65,7 +80,50 @@ footer div {
 	border-radius: 1em 1em 0 0;
 }
 
-/* This is where  */
+/* This is the avatar at the top of the page */
+header img {
+	border-radius: 50%;
+	box-shadow: 2px 2px 10px var(--banner-shadow-color );
+	position: absolute;
+	left: 30px;
+	top: 30px;
+	height: calc(100% - 60px);
+}
+
+/* Navigation stuff  */
+nav {
+	margin-top: 1em;
+}
+nav ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	justify-content: center;
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	gap: 1em;
+	align-items: center;
+}
+nav ul li {
+	flex: 0 0 33%;
+}
+nav ul li a {
+	text-decoration: none;
+	border: var(--nav-button-color) solid .2em;
+	color: var(--font-color);
+	font-size: 1.3em;;
+	padding: .5em 0;
+	border-radius: 0.5em;
+	width: 100%;
+	display: block;
+	transition: all 100ms ease-in-out;
+}
+nav ul li a:hover {
+	background-color: var(--nav-button-color-hover);
+	border-width: 0px;
+}
 
 
 /* This adds the light gray background to each block of content */
@@ -112,6 +170,7 @@ footer div {
 	border-radius: 2em;
 	overflow: hidden;
 	cursor:pointer;
+	box-shadow: var(--banner-shadow-color) 2px 2px 10px;
 }
 
 /* The picture is grayed out normally, and glows when hovered over */
@@ -135,13 +194,54 @@ footer div {
 	display: block;
 	margin: 0px;
 	background-image: linear-gradient( rgb(0, 0, 0, 0), rgb(0, 0, 0, 1), rgb(0, 0, 0, 1));
-	padding: 0.5em 2em;
-	height: 2em;
+	padding: 0.5em 0;
 	font-size: 1.5em;;
 	left:0px;
 	right:0px;
 	bottom: 0px;
+	
 }
 .portfolio-list li article a:hover h1 {
 	text-decoration: underline;
+}
+
+
+@media screen and (max-width: 1000px) {
+	
+.portfolio-list li {
+	flex: 1 1 100%;
+}
+
+.block {
+	padding-left: 1em;
+	padding-right: 1em;
+}
+}
+
+@media screen and (max-width: 800px) {
+	.block {
+		border-radius: 0;
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	header img {
+		position: relative;
+		left: 0;
+		top: 0;
+		height: calc(100% - 60px);
+	}
+
+	nav ul {
+		width: 90%;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	nav ul {
+		flex-wrap: wrap;
+	}
+	nav ul li {
+		flex-basis: 100%;
+	}
 }
