@@ -1,23 +1,35 @@
+:root {
+	--font-color: #e9e9e9;
+	--hyperlink-color: #5ADBFF;
+	
+	--background-color: #242424;
+	--block-color: #7c7c7c;
+	--banner-border-color: #303030;
+	--banner-shadow-color: black;
+	--banner-color: #525252;
+}
+
+
 * {
 	/* TODO: Pick a nice font */
-	color: rgb(233, 233, 233);
+	color: var(--font-color);
 	font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
 	margin: 0;
 	padding: 0;
-	background: rgb(36, 36, 36);
+	background: var(--background-color);
 }
 
 a {
-	color: rgb(124, 124, 240);
+	color: var(--hyperlink-color);
 }
 
 /* The banner at the top and bottom of the page */
 header,
 footer {
-	background-color: rgb(48, 48, 48);
+	background-color: var(--banner-border-color);
 	display: block;
 	margin: 0;
 	text-align: center;
@@ -25,34 +37,43 @@ footer {
 	height:min-content;
 }
 
-/* There are some properties that are inverted between the header and footer */
-header {
-	border-radius: 0em 0em 1.5em 1.5em;
-	box-shadow: 1em 0em 1em black;
-	padding-top: 0;
-}
-footer {
-	border-radius: 1.5em 1.5em 0em 0em;
-	box-shadow: -1em 0em 1em black;
-	padding-bottom: 0;
-}
-
 /* I use these divs to create the border effect on the header and footer */
 header div,
 footer div{
 	overflow:auto;
 	margin:0px;
-	background-color: rgb(82, 82, 82);
-	box-shadow: inset 0px 0px 0.3em rgb(48, 48, 48);
-	border-radius: 1em 1em 1em 1em;
+	background-color: var(--banner-color);
+	box-shadow: inset 0px 0px 0.3em --banner-border-color;
+	padding: 2em 1em;
 }
+
+/* There are some properties that are inverted between the header and footer */
+header {
+	border-radius: 0em 0em 1.5em 1.5em;
+	box-shadow: 1em 0em 1em var(--banner-shadow-color);
+	padding-top: 0;
+}
+header div {
+	border-radius: 0 0 1em 1em;
+}
+footer {
+	border-radius: 1.5em 1.5em 0em 0em;
+	box-shadow: -1em 0em 1em var(--banner-shadow-color);
+	padding-bottom: 0;
+}
+footer div {
+	border-radius: 1em 1em 0 0;
+}
+
+/* This is where  */
+
 
 /* This adds the light gray background to each block of content */
 .block {
-	background-color: rgb(124, 124, 124);
+	background-color: var(--block-color);
 	margin: 2em;
 	border-radius: 2em;
-	box-shadow: inset 0px 0px 0.3em rgb(36, 36, 36);
+	box-shadow: inset 0px 0px 0.3em var(--background-color);
 	padding: 1em 5em;
 	display: block;
 }
@@ -100,9 +121,9 @@ footer div{
 	height: 100%;
 	width: 100%;
 	object-fit: cover;
-	
+
 	filter: brightness(0.5);
-	transition: 70ms;
+	/* transition: 70ms; */
 }
 .portfolio-list li article a:hover img {
 	filter: brightness(1.0);
