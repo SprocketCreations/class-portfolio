@@ -29,10 +29,12 @@ footer {
 header {
 	border-radius: 0em 0em 1.5em 1.5em;
 	box-shadow: 1em 0em 1em black;
+	padding-top: 0;
 }
 footer {
 	border-radius: 1.5em 1.5em 0em 0em;
 	box-shadow: -1em 0em 1em black;
+	padding-bottom: 0;
 }
 
 /* I use these divs to create the border effect on the header and footer */
@@ -45,15 +47,20 @@ footer div{
 	border-radius: 1em 1em 1em 1em;
 }
 
-/* The main body of the portfolio */
-.portfolio-body {
+/* This adds the light gray background to each block of content */
+.block {
+	background-color: rgb(124, 124, 124);
+	margin: 2em;
+	border-radius: 2em;
+	box-shadow: inset 0px 0px 0.3em rgb(36, 36, 36);
 	padding: 1em 5em;
-	margin: 0;
 	display: block;
 }
-.portfolio-body h1 {
+.block h1 {
 	text-align: center;
 }
+
+/* The main body of the portfolio */
 
 /* the list element that contains all the entries */
 .portfolio-list {
@@ -61,13 +68,22 @@ footer div{
 	list-style-type: none;
 	padding: 0px;
 	margin: 0;
+
+	display: flex;
+	flex-flow: row wrap;
+	gap: 1em;
 }
 .portfolio-list li {
-	display: block;;
+	display: block;
+
+	flex: 1 1 calc(50% - 1em);
+}
+.portfolio-list :first-child {
+	flex: 1 1 100%;
 }
 
 /* This is the anchor representing the portfolio option */
-.portfolio-list li section a {
+.portfolio-list li article a {
 	display: block;
 	height: 20em;
 	width: 100%;
@@ -78,18 +94,22 @@ footer div{
 }
 
 /* The picture is grayed out normally, and glows when hovered over */
-.portfolio-list li section a img {
+.portfolio-list li article a img {
 	display: block;
+
+	height: 100%;
 	width: 100%;
+	object-fit: cover;
+	
 	filter: brightness(0.5);
 	transition: 70ms;
 }
-.portfolio-list li section a:hover img {
+.portfolio-list li article a:hover img {
 	filter: brightness(1.0);
 }
 
 /* The header sits above the image and has a cool black gradient background */
-.portfolio-list li section a h1 {
+.portfolio-list li article a h1 {
 	position: absolute;
 	display: block;
 	margin: 0px;
@@ -101,6 +121,6 @@ footer div{
 	right:0px;
 	bottom: 0px;
 }
-.portfolio-list li section a:hover h1 {
+.portfolio-list li article a:hover h1 {
 	text-decoration: underline;
 }
