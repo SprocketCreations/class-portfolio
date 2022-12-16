@@ -160,11 +160,14 @@ nav ul li a:hover {
 .portfolio-list :first-child {
 	flex: 1 1 100%;
 }
+.portfolio-list :first-child article a {
+	aspect-ratio: 2 / 1;
+}
 
 /* This is the anchor representing the portfolio option */
 .portfolio-list li article a {
 	display: block;
-	height: 20em;
+	aspect-ratio: 1 / 1;
 	width: 100%;
 	position: relative;
 	border-radius: 2em;
@@ -210,6 +213,10 @@ nav ul li a:hover {
 	
 .portfolio-list li {
 	flex: 1 1 100%;
+}
+
+.portfolio-list :first-child article a {
+	aspect-ratio: 1 / 1;
 }
 
 .block {
