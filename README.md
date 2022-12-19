@@ -1,5 +1,7 @@
 # Class Portfolio
 
+![Image of deployed application](preview.jpg)
+
 ## Description
 
 This is a portfolio of all the noteworthy projects I completed during the bootcamp. As I complete projects, I will add them to this visualizer.
